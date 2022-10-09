@@ -6,24 +6,20 @@
 
 Securely install the latest pip-tools release from PyPI.
 
-This action installs a pinned version of **pip-tools** and all its dependencies,
-making sure that file hashes match. 
-Pinning your dependencies stops supply chain attacks where an adversary replaces pip-tools or one of its dependencies with malicious code.
+This action installs a pinned version of **pip-tools** and all its dependencies,         making sure that file hashes match. Pinning your dependencies stops supply chain attacks where an adversary         replaces pip-tools or one of its dependencies with malicious code.
 
 ## Usage
 
 In your GitHub Actions workflow, use this action like so:
 
 ```yaml
-    - name: Install pip-tools from PyPI
-      uses: install-pinned/pip-tools@f0dae0e85b4fb453f5e5cc5914d791c07bbea8a7  # 6.9.0
+- name: Install pip-tools from PyPI
+  uses: install-pinned/pip-tools@ffffffffffffffffffffffffffffffffffffffff
 ```
 
 ## Alternatives
 
-This action is a relatively simple wrapper around the fantastic [pip-tools](https://pip-tools.rtfd.io)
-and is most useful if there is no existing `requirements.txt`/`poetry.lock`/... infrastructure in place.
-If you already pin all your dependencies in a single place, you don't need it!
+This action is a relatively simple wrapper around the fantastic [pip-tools](https://pip-tools.rtfd.io)         and is most useful if there is no existing `requirements.txt`/`poetry.lock`/... infrastructure in place.         If you already pin all your dependencies in a single place, you don't need it!
 
 ## More Details
 
