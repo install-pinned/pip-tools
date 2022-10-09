@@ -47,14 +47,17 @@ jobs:
             ver=$(curl -Ls https://pypi.org/pypi/pip-tools/json | jq -r .info.version)
             git commit -m "update pins (pip-tools $ver)"
             commit=$(git rev-parse HEAD)
+            tag=$(date -I)_"$ver"_$commit
+            git tag $tag
             sed -i -E "s/@[0-9a-f]{40}/@$commit/g" README.md
             git commit -am "update README.md (pip-tools $ver)"
             git push
-            echo "::set-output name=commit::$commit"
+            git push --tags
+            echo "::set-output name=tag::$tag"
             echo "::set-output name=ver::$ver"
           fi
       - if: steps.commit.outputs.commit
         uses: softprops/action-gh-release@cd28b0f5ee8571b76cfdaa62a30d51d752317477
         with:
           name: ${ steps.commit.outputs.ver }
-          tag_name: ${ steps.commit.outputs.commit }
+          tag_name: ${ steps.commit.outputs.tag }
