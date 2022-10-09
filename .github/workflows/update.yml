@@ -56,7 +56,7 @@ jobs:
             echo "::set-output name=tag::$tag"
             echo "::set-output name=ver::$ver"
           fi
-      - if: steps.commit.outputs.commit
+      - if: steps.commit.outputs.tag
         uses: softprops/action-gh-release@cd28b0f5ee8571b76cfdaa62a30d51d752317477
         with:
           name: ${ steps.commit.outputs.ver }
