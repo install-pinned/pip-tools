@@ -2,6 +2,8 @@
 
 # install-pinned/pip-tools
 
+![](https://shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10-blue)
+
 Securely install the latest pip-tools release from PyPI.
 
 This action installs a pinned version of **pip-tools** and all its dependencies,
