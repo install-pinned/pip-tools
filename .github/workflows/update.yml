@@ -46,7 +46,10 @@ jobs:
             ver=$(curl -Ls https://pypi.org/pypi/pip-tools/json | jq -r .info.version)
             git commit -m "update pins (pip-tools $ver)"
             commit=$(git rev-parse HEAD)
+            echo $commit
+            cat README.md
             sed -i -E "s/@[0-9a-f]40/@$commit/g" README.md
+            cat README.md
             git commit -am "update README.md (pip-tools $ver)"
             git push
           fi
