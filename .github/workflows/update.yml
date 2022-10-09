@@ -38,7 +38,8 @@ jobs:
       - run: pip install pip-tools
       - run: pip-compile --allow-unsafe --generate-hashes pins/requirements.in -o pins/requirements-3.10.txt
 
-      - run: |
+      - id: commit
+        run: |
           if [ -n "$(git status --porcelain)" ]; then
             git config --global user.name "install-pinned bot"
             git config --global user.email "install-pinned@users.noreply.github.com"
@@ -49,4 +50,13 @@ jobs:
             sed -i -E "s/@[0-9a-f]{40}/@$commit/g" README.md
             git commit -am "update README.md (pip-tools $ver)"
             git push
+            echo "::set-output name=commit::$commit"
+            echo "::set-output name=ver::$ver"
           fi
+      - if: steps.commit.commit != ''
+        uses: actions/create-release@v1
+        env:
+            GITHUB_TOKEN: ${ secrets.GITHUB_TOKEN }
+        with:
+          tag_name: ${ steps.tests.outputs.commit }
+          release_name: ${ steps.tests.outputs.ver }
