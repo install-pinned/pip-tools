@@ -54,9 +54,7 @@ jobs:
             echo "::set-output name=ver::$ver"
           fi
       - if: steps.commit.outputs.commit
-        uses: actions/create-release@v1
-        env:
-            GITHUB_TOKEN: ${ secrets.GITHUB_TOKEN }
+        uses: softprops/action-gh-release@cd28b0f5ee8571b76cfdaa62a30d51d752317477
         with:
-          tag_name: ${ steps.tests.outputs.commit }
-          release_name: ${ steps.tests.outputs.ver }
+          name: ${ steps.commit.outputs.ver }
+          tag_name: ${ steps.commit.outputs.commit }
