@@ -47,7 +47,7 @@ jobs:
             ver=$(curl -Ls https://pypi.org/pypi/pip-tools/json | jq -r .info.version)
             git commit -m "update pins (pip-tools $ver)"
             commit=$(git rev-parse HEAD)
-            tag=$(date -uIminutes | sed s/+00:00/Z/ | sed s/:/./g)
+            tag=$(date -uIminutes | sed s/+00:00/Z/ | sed s/:/./g)_pip-tools_$ver
             git tag $tag
             sed -i -E "s/@[0-9a-f]{40}/@$commit/g" README.md
             git commit -am "update README.md (pip-tools $ver)"
