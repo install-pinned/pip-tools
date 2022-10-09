@@ -9,7 +9,7 @@ In your GitHub Actions workflow, use this action like this:
 
 ```yaml
     - name: Install pip-tools from PyPI
-      uses: install-pinned/pip-tools@ffffffffffffffffffffffffffffffffffffffff
+      uses: install-pinned/pip-tools@335edaf9911690825c91955fd7e86ffc40d54dca
 ```
 
 ## Why pin?
