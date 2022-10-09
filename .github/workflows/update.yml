@@ -1,3 +1,4 @@
+
 name: "update pins"
 
 on:
@@ -44,5 +45,8 @@ jobs:
             git add --all
             ver=$(curl -Ls https://pypi.org/pypi/pip-tools/json | jq -r .info.version)
             git commit -m "update pins (pip-tools $ver)"
+            commit=$(git rev-parse HEAD)
+            sed -i -E "s/@[0-9a-f]40/@$commit/g" README.md
+            git commit -am "update README.md (pip-tools $ver)"
             git push
           fi
