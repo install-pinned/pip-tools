@@ -49,7 +49,7 @@ jobs:
             echo $commit
             cat README.md
             sed -i -E "s/@[0-9a-f]40/@$commit/g" README.md
-            echo "s/@[0-9a-f]40/@$commit/g"
+            echo "s/@[0-9a-f]{40}/@$commit/g"
             cat README.md
             git commit -am "update README.md (pip-tools $ver)"
             git push
