@@ -50,15 +50,4 @@ jobs:
             sed -i -E "s/@[0-9a-f]{40}/@$commit/g" README.md
             git commit -am "update README.md (pip-tools $ver)"
             git push
-
-            tag=$(date -uIminutes | sed s/+00:00/Z/ | sed s/:/./g)_pip-tools_$ver
-            git tag $tag
-            git push --tags
-            echo "::set-output name=tag::$tag"
-            echo "::set-output name=ver::$ver"
           fi
-      - if: steps.commit.outputs.tag
-        uses: softprops/action-gh-release@cd28b0f5ee8571b76cfdaa62a30d51d752317477
-        with:
-          name: pip-tools ${{ steps.commit.outputs.ver }}
-          tag_name: ${{ steps.commit.outputs.tag }}
