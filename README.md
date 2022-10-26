@@ -13,8 +13,8 @@ This action installs a pinned version of **pip-tools** and all its dependencies,
 In your GitHub Actions workflow, use this action like so:
 
 ```yaml
-- name: Install pip-tools from PyPI
-  uses: install-pinned/pip-tools@164ce50c1f3a8ee511aca192fa6d52b8c70be258  # 6.9.0
+      - name: Install pip-tools from PyPI
+        uses: install-pinned/pip-tools@164ce50c1f3a8ee511aca192fa6d52b8c70be258  # 6.9.0
 ```
 
 ## Alternatives
