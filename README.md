@@ -14,7 +14,7 @@ In your GitHub Actions workflow, use this action like so:
 
 ```yaml
       - name: Install pip-tools from PyPI
-        uses: install-pinned/pip-tools@16b96765d6ca29380492c9a4a93772b8b9d1c466  # 6.10.0
+        uses: install-pinned/pip-tools@ed0013abbb545df3808583bc75f45ae3f4d4ee69  # 6.10.0
 ```
 
 ## Alternatives
