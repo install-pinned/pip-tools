@@ -54,7 +54,7 @@ pip==22.3.1 \
     --hash=sha256:65fd48317359f3af8e593943e6ae1506b66325085ea64b706a998c6e83eeaf38 \
     --hash=sha256:908c78e6bc29b676ede1c4d57981d490cb892eb45cd8c214ab6298125119e077
     # via pip-tools
-setuptools==66.1.0 \
-    --hash=sha256:78a02bdea8a5cb66dec1c507598c443bcc75562817d2556c1a17f7a344615bb4 \
-    --hash=sha256:fc19f9f62120a763300fd78e234b3cbd3417be098f08c156eaaf36420627e57b
+setuptools==66.1.1 \
+    --hash=sha256:6f590d76b713d5de4e49fe4fbca24474469f53c83632d5d0fd056f7ff7e8112b \
+    --hash=sha256:ac4008d396bc9cd983ea483cb7139c0240a07bbc74ffb6232fceffedc6cf03a8
     # via pip-tools
